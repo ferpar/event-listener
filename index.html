@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Reacting</title>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0"></script>
+</head>
+<body>
+ <div id="root"></div>
+ <script type="text/babel">
+
+  class TestComponent extends React.Component {
+    constructor(props) {
+    super(props);
+      this.state ={
+        message:"This is a custom message"
+      }
+    }
+
+    handleClick = () => {
+      this.setState({message: "new Message"});
+    }
+
+    render(){
+      return( 
+      <div>
+        <h1>Hello React!</h1>
+        <p>Testing this</p>
+        <p>{this.state.message}</p>
+        <button onClick={this.handleClick}> change Message </button>
+      </div>
+      );
+    }
+  }
+
+
+  ReactDOM.render(
+    <TestComponent />,
+    document.getElementById('root')
+    );
+ </script>
+</body>
+</html>
